@@ -5,13 +5,10 @@
 package com.team.fashionStore.pojo;
 
 import java.io.Serializable;
-import java.util.Set;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -19,19 +16,17 @@ import javax.persistence.Table;
  * @author Asus
  */
 @Entity
-@Table(name = "category")
-public class Category implements Serializable{
+@Table(name = "role")
+public class Role implements Serializable{
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
-    private Set<Clothes> clothes;
     
-    public Category() {
+    private String name;
+
+    public Role() {
     }
 
-    public Category(int id, String name) {
+    public Role(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -63,20 +58,5 @@ public class Category implements Serializable{
     public void setName(String name) {
         this.name = name;
     }
-
-    /**
-     * @return the clothes
-     */
-    public Set<Clothes> getClothes() {
-        return clothes;
-    }
-
-    /**
-     * @param clothes the clothes to set
-     */
-    public void setClothes(Set<Clothes> clothes) {
-        this.clothes = clothes;
-    }
-    
     
 }

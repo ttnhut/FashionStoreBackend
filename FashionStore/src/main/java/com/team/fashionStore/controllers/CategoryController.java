@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Asus
  */
 @RestController
-@RequestMapping("/api/categories")
+@RequestMapping("/api/v1/categories")
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
@@ -47,7 +47,7 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     public ResponseEntity<ApiResponse> deleteCategory(@PathVariable(value = "id") Integer id){
         this.categoryService.deleteCategory(id);
-        return new ResponseEntity<>(new ApiResponse("User is deleted successfully", true),HttpStatus.OK);
+        return new ResponseEntity<>(new ApiResponse("Category is deleted successfully", true),HttpStatus.OK);
     }
     //Get - All Category
     @GetMapping("/")
