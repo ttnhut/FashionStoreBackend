@@ -7,6 +7,7 @@ package com.team.fashionStore.pojo;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -34,7 +35,7 @@ public class Order implements Serializable{
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date createdDate;
     
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "user_id")
     private User user;
     @OneToMany(mappedBy = "order",fetch = FetchType.LAZY)

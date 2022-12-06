@@ -52,7 +52,7 @@ public class ClothesServiceImpl implements ClothesService{
         c.setImage(clothes.getImage());
         c.setName(clothes.getName());
         c.setQuantity(clothes.getQuantity());
-      
+        c.setCategory(this.modelMapper.map(clothes.getCategory(), Category.class));
         return this.modelMapper.map(this.clothesRepository.save(c), ClothesDto.class);
     }
 
@@ -104,5 +104,11 @@ public class ClothesServiceImpl implements ClothesService{
         List<Clothes> list = this.clothesRepository.searchByName(keyword);
         return list.stream().map(item->this.modelMapper.map(item,ClothesDto.class)).collect(Collectors.toList());
      }
+
+    @Override
+    public List<Object> countClothesByCategory() {
+        
+        return this.clothesRepository.countClothesByCategory();
+      }
   
 }

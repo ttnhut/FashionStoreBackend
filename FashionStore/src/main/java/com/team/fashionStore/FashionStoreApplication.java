@@ -9,7 +9,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.security.crypto.password.PasswordEncoder;
+
 
 @SpringBootApplication
 public class FashionStoreApplication implements CommandLineRunner{
@@ -23,7 +23,7 @@ public class FashionStoreApplication implements CommandLineRunner{
         public ModelMapper modelMapper(){
             return new ModelMapper();
         }
-        
+       
        
         
         
@@ -31,4 +31,5 @@ public class FashionStoreApplication implements CommandLineRunner{
     public void run(String... args) throws Exception {
        
       }
+   
 }

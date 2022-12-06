@@ -20,4 +20,9 @@ public interface ClothesRepository extends JpaRepository<Clothes, Integer> {
     
     @Query("select c from Clothes c where lower(c.name) like concat('%', :keyword,'%')")
     List<Clothes> searchByName(@Param("keyword") String kw);
+    
+    
+    @Query("select count(C.id) from Clothes C right outer join Category Cat on C.category = Cat.id group by Cat.name ")
+    List<Object> countClothesByCategory();
+    
 }

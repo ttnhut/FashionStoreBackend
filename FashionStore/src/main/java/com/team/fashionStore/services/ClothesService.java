@@ -20,5 +20,6 @@ public interface ClothesService {
     ClothesDto getClothesByid(Integer id);
     List<ClothesDto> getClothesByCategory(Integer id);
     List<ClothesDto> searchClothes(String keyword);
+    List<Object> countClothesByCategory();
 }
 

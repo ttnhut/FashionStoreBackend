@@ -4,6 +4,7 @@
  */
 package com.team.fashionStore.payloads;
 
+import java.io.Serializable;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
@@ -12,7 +13,7 @@ import javax.validation.constraints.Size;
  *
  * @author Asus
  */
-public class CategoryDto {
+public class CategoryDto implements Serializable{
     
     private int id;
     @NotEmpty
@@ -21,7 +22,11 @@ public class CategoryDto {
 
     public CategoryDto() {
     }
-
+    
+    public CategoryDto(String id){
+        this.id = Integer.parseInt(id);
+    }
+    
     public CategoryDto(int id, String name) {
         this.id = id;
         this.name = name;
